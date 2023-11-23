@@ -55,7 +55,7 @@ export default function Registersubview() {
     }finally{
 
       setLoading(false);
-      
+
     }
   };
   
@@ -78,7 +78,7 @@ export default function Registersubview() {
     <MaterialIcons name="lock" size={24} color="black" style={styles.pass}/>
      <TouchableOpacity style={styles.btn} onPress={registerUser} >
      {
-      loading? ( <ActivityIndicator size="small" color="#fff" />):(
+      loading? ( <ActivityIndicator size="large" color="#fff" />):(
         <Text style={styles.btnTxt}>Signup</Text>
       )
      }
