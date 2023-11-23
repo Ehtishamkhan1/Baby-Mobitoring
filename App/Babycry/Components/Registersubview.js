@@ -33,6 +33,7 @@ export default function Registersubview() {
         return;
       }
       
+      setLoading(true)
       const credentials = await firebase.auth().createUserWithEmailAndPassword(email, pass);
 
       await firebase.auth().currentUser.sendEmailVerification({
@@ -51,6 +52,10 @@ export default function Registersubview() {
     } catch (error) {
       
       alert(error.message);
+    }finally{
+
+      setLoading(false);
+      
     }
   };
   
@@ -72,7 +77,12 @@ export default function Registersubview() {
     <TextInput  style={styles.nameInput2} placeholder='Password' secureTextEntry={true} onChangeText={(text) => setpass(text)} />
     <MaterialIcons name="lock" size={24} color="black" style={styles.pass}/>
      <TouchableOpacity style={styles.btn} onPress={registerUser} >
-      <Text style={styles.btnTxt}>Signup</Text>
+     {
+      loading? ( <ActivityIndicator size="small" color="#fff" />):(
+        <Text style={styles.btnTxt}>Signup</Text>
+      )
+     }
+      
      </TouchableOpacity>
       <View style={styles.endview} >
       <Text style={styles.endtext} >
