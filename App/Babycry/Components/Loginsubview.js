@@ -18,22 +18,22 @@ export default function Loginsubview() {
 
   const loginuser = async () => {
     try {
-      setLoading(true); 
-      
-      const credentials=await firebase.auth().signInWithEmailAndPassword(email, pass);
-      
-      const user =credentials.user;
+      setLoading(true);
 
-      if(user && user.emailVerified){
-      navigation.navigate('BottomTab');
+      const credentials = await firebase.auth().signInWithEmailAndPassword(email, pass);
+
+      const user = credentials.user;
+
+      if (user && user.emailVerified) {
+        navigation.navigate('BottomTab');
       }
-      else{
+      else {
         alert("Please verify your email before login");
       }
     } catch (error) {
       alert(error.message);
     } finally {
-      setLoading(false); 
+      setLoading(false);
     }
   }
 
