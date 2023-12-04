@@ -11,7 +11,6 @@ const Stack = createStackNavigator();
 export function MyStack() {
   return (
     <Stack.Navigator>
-      
       <Stack.Screen
         name="Login"
         component={Login}
