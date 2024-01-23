@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
   },
   nameInput1: {
     height: 40,
-    width: 330,
+    width: '70%',
     marginLeft: "auto",
     marginRight: "auto",
     borderBottomWidth: 1,
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   },
   nameInput2: {
     height: 40,
-    width: 330,
+    width: '70%',
     marginLeft: "auto",
     marginRight: "auto",
     borderBottomWidth: 1,
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
   },
   nameInput3: {
     height: 40,
-    width: 330,
+    width: '70%',
     marginLeft: "auto",
     marginRight: "auto",
     borderBottomWidth: 1,
@@ -101,17 +101,17 @@ const styles = StyleSheet.create({
     color: "#2A0134",
   },
   email: {
-    left: 40,
+    left: '6%',
     bottom: 30,
     width: 30,
   },
   pass: {
-    left: 40,
+    left: '6%',
     bottom: 30,
     width: 30,
   },
   name: {
-    left: 40,
+    left: '6%',
     bottom: 30,
     width: 30,
   },
@@ -120,6 +120,28 @@ const styles = StyleSheet.create({
     bottom: 13,
     left: 72,
   },
+  Dashboardbackground:{
+    flex:1,
+    alignItems:"center",
+    backgroundColor:"F0ECE5"
+    // justifyContent:"center"
+  },
+  Dashboardbuttons:{
+    height: 55,
+    width: 400,
+    backgroundColor: "#2A0134",
+    borderRadius: 20,
+    borderWidth: 2,
+    // marginTop: 30,
+    justifyContent: "center",
+    alignItems: "center",
+    marginBottom:10
+  },
+  dashboardbtntxt:{
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 16,
+  }
 });
 
 export default styles;

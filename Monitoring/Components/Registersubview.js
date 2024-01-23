@@ -18,6 +18,8 @@ export default function Registersubview() {
   const [pass, setpass] = useState("");
   const [isgmail, setisgmail] = useState(true);
   const [loading, setLoading] = useState(false);
+  const [passwordError, setPasswordError] = useState("");
+  const [nameError, setNameError] = useState("");
 
   const navigation = useNavigation();
   const tologin = () => {
@@ -29,10 +31,36 @@ export default function Registersubview() {
     setisgmail(isValidGmail);
   };
 
+  const validatePassword = (password) => {
+    if (password.length < 6 || password.length > 8) {
+      setPasswordError("Password should be between 6 and 8 characters");
+    } else {
+      setPasswordError("");
+    }
+  };
+
+  const validateName = (name) => {
+    if (!name.trim()) {
+      setNameError("Name cannot be empty");
+    } else {
+      setNameError("");
+    }
+  };
+
   const registerUser = async () => {
     try {
       if (!isgmail) {
         alert("Please enter a valid Gmail address");
+        return;
+      }
+
+      if (passwordError) {
+        alert(passwordError);
+        return;
+      }
+
+      if (nameError) {
+        alert(nameError);
         return;
       }
 
@@ -84,7 +112,9 @@ export default function Registersubview() {
       <TextInput
         style={styles.nameInput3}
         placeholder="User Name"
-        onChangeText={(text) => setname(text)}
+        onChangeText={(text) => {
+          setname(text), validateName(text);
+        }}
       />
       <Ionicons
         name="person-circle"
@@ -92,13 +122,18 @@ export default function Registersubview() {
         color="black"
         style={styles.name}
       />
+      {nameError && <Text style={styles.emailvalid}>{nameError}</Text>}
       <TextInput
         style={styles.nameInput2}
         placeholder="Password"
         secureTextEntry={true}
-        onChangeText={(text) => setpass(text)}
+        onChangeText={(text) => {
+          setpass(text);
+          validatePassword(text);
+        }}
       />
       <MaterialIcons name="lock" size={24} color="black" style={styles.pass} />
+      {passwordError && <Text style={styles.emailvalid}>{passwordError}</Text>}
       <TouchableOpacity style={styles.btn} onPress={registerUser}>
         {loading ? (
           <ActivityIndicator size="large" color="#fff" />

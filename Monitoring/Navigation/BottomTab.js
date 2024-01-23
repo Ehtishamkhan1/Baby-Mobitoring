@@ -4,6 +4,9 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { NavigationContainer } from '@react-navigation/native'
 import Dashboard from '../Screens/Dashboard'
 import { AntDesign } from '@expo/vector-icons';
+import Babylivestream from '../Screens/Babylivestream'
+
+
 
 
 const Tab=createBottomTabNavigator();
